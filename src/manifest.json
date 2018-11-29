@@ -1,11 +1,11 @@
 {
-    "short_name": "MyPhaserGame",
-    "name": "PhaserES6Webpack",
+    "short_name": "BushiRoad",
+    "name": "BushiRoad",
     "start_url": "./index.html",
     "display": "standalone",
-    "theme_color": "#ffffff",
-    "background_color": "#000000",
-    "description": "Welcome to Phaser + ES6 + Webpack!.",
+    "theme_color": "#55f",
+    "background_color": "#55f",
+    "description": "Welcome to BushiRoad!.",
     "icons": [{
       "src": "assets/images/mushroom2.png",
       "sizes": "48x48",

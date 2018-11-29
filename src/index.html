@@ -3,8 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Phaser - ES6 - Webpack</title>
+    <title>BushiRoad</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Bushiroad is a web based side scroller game where players will need to form cards upon collecting
+    a set of similar relevant card icons.">
+    <meta name="og:title" property="og:title" content="BushiRoad">
+    <meta property="og:description" content="Join me and Aichi in CARDFIGHT! VANGUARD game and stand a chance to win great prizes." />
+    <meta property="og:url" content="/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/image/bushi_image" />
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta http-equiv="cleartype" content="on">
@@ -16,13 +23,152 @@
         body {
             margin: 0;
             padding: 0;
+            height: 100%;
+        }
+        input[type="text"] {
+            border: none;
+            height: 80%;
+            margin-left: 10px;
+            width: 80%;
+        }
+        .cols {
+            display: flex;
+        }
+        .main {
+            /*width: 1013px;
+            height: 570px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -287px -510px;*/
+            flex: 70%;
+            max-width: 1013px;
+        }
+        .ad {
+            flex: 15%;
+            max-width: 300px;
+            text-align: center;
+            padding: 4px;
+            background: #eee;
+        }
+        .overlay {
+            position: absolute;
+            z-index: 1000;
+            top: 380px;
+            left: 48%;
+            color: #fff;
+            font-size: 0.8em;
+            width: 450px;
+            transform: translate(-50%, -50%);
+            display:none;
+            font-family: 'levenim'
+        }
+        .o-item {
+            margin: 5%;
+            display: flex;
+        }
+        .o-item .title {
+            flex: 30%;
+            text-align: right;
+        }
+        .o-item .input {
+            flex: 70%;
+        }
+        @font-face {
+	        font-family: "ethnocentric";
+	        font-style: normal;
+	        font-weight: 400;
+	        src: url("assets/fonts/ethnocentric/ethnocentric-rg.ttf");
+        }
+        @font-face {
+	        font-family: "ethnocentric-it";
+	        font-style: italic;
+	        font-weight: 400;
+	        src: url("assets/fonts/ethnocentric/ethnocentric-rg-it.ttf");
+        }
+        @font-face {
+	        font-family: "levenim";
+	        font-style: normal;
+	        font-weight: 400;
+	        src: url("assets/fonts/levenim-mt/lvnm.ttf");
+        }
+        @font-face {
+	        font-family: "levenim-bd";
+	        font-style: normal;
+	        font-weight: 400;
+	        src: url("assets/fonts/levenim-mt/lvnmbd.ttf");
+        }
+        @media (max-width: 1024px) {
+            .ad,
+            .main {
+                flex: 100%;
+            }
+            .ad {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <div id="content"></div>
+    <div id="title" style="text-align:center">
+        <h1>BushiRoad</h1>
+    </div>
+    <div id="cheat">
+        Death:
+        <input id="death" type="checkbox" checked/>
+        Gravity: 
+        <input id="gravity" type="number" value="3000" />
+        Speed: 
+        <input id="speed" type="number" value="5"/>
+        Short Jump
+        <input id="sJump" type="number" value="1000"/>
+        Height Jump
+        <input id="hJump" type="number" value="1200"/>
+    </div>
+    <div class="cols">
+        <div class="ad">
+            <h2>AD</h2>
+            <p>
+                Add your ad here
+            </p>
+        </div>
+        <div id="content" class="main"></div>
+        <div class="ad">
+            <h2>AD</h2>
+            <p>
+                Add your ad here
+            </p>
+        </div>
+        <div id="form" class="overlay">
+            <div class="o-item">
+                <div class="title">
+                    <b>Name</b>
+                </div>
+                <div class="input">
+                    <input id="name" type="text" />
+                </div>
+            </div>
+            <div class="o-item">
+                <div class="title">
+                    <b>Email Address</b>
+                </div>
+                <div class="input">
+                    <input id="email" type="text" />
+                </div>
+            </div>
+            <div style="margin: 30px 0 0 100px; font-size: 11px;">
+                <div>
+                    <input id="agree" type="checkbox" checked/>
+                    <span>I agree BushiRoad's <a href="#" style="color:#fff">Privacy Policy</a> and <a href="#" style="color:#fff">Terms of Use</a></span>
+                </div>
+                <div>
+                    <input id="esign" type="checkbox" />
+                    <span>Keep me up to date with new products, event exclusives and more on our BushiRoad's eNewsletter!</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- uncomment the line bellow for cordova feature -->
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
 </body>

@@ -4,9 +4,11 @@ import config from '../config';
 
 export default class extends Phaser.State {
   init() {
-    this.stage.backgroundColor = '#EDEEC9'
+    this.stage.backgroundColor = '#09f'
     this.fontsReady = false
     this.fontsLoaded = this.fontsLoaded.bind(this)
+    /*this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.setMinMax(null, null, 1013, 570);*/
   }
 
   preload() {

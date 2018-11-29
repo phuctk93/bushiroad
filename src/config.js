@@ -1,6 +1,7 @@
 export default {
-  gameWidth: 760,
-  gameHeight: 400,
+  gameWidth: 1010,
+  gameHeight: 570,
+  host: 'https://anino.xyz:5000',
   localStorageName: 'phaseres6webpack',
-  webfonts: ['Bangers']
+  webfonts: []
 }

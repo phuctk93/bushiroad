@@ -27,24 +27,28 @@ export default class extends Phaser.State {
 		this.add.sprite(0, 0, 'bd')
 		this.add.sprite(450, 60, 'score_bg')
 
-		this.hightlight = this.add.sprite(462, 100, 'highlight')
+		this.hightlight = this.add.sprite(465, 88, 'highlight')
 		this.hightlight.alpha = 0.5
-		this.hightlight.scale.x = 0.9
+		this.hightlight.scale.x = 0.89
 
 		this.leas = this.add.group()
 
 		this.btn_prize = new Button({
 			game: this.game,
 			x: this.world.centerX,
-			y: 470,
-			asset: 'btn_prize',
+			y: 460,
+			asset: 'btn_bg',
+			text: 'ENTER TO WIN\nEXCLUSIVE PRIZES',
+			style: this.game.btn_style_s,
 			callback: () => {this.state.start('Register')}
 		})
 		this.btn_return = new Button({
 			game: this.game,
 			x: this.world.centerX,
 			y: 520,
-			asset: 'btn_return',
+			asset: 'btn_bg_s',
+			text: 'RETURN TO START GAME',
+			style: this.game.btn_style_ss,
 			callback: () => {this.state.start('Start')}
 		})
 		this.btn_close = new Button({

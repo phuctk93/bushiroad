@@ -22,6 +22,32 @@ export default class extends Phaser.State {
 		this.bg_share_a.anchor.x = 0.5
 		this.bg_share_a.alpha = 0.5*/
 
+		this.thank = this.add.text(
+			this.game.world.centerX,
+			75,
+			'THANK YOU FOR \nYOUR SUBMISSION',
+			{font: '28px ethnocentric', fill: '#fff', stroke: '#0ff', strokeThickness: 1, align: 'center'}
+		)
+		this.thank.anchor.setTo(0.5)
+		this.thank.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
+
+		this.we = this.add.text(
+			this.game.world.centerX,
+			145,
+			'We will notify the Top 10 Players on your Prizes!',
+			{font: '13px levenim', fill: '#fff'}
+		)
+		this.we.anchor.setTo(0.5)
+
+		this.brag = this.add.text(
+			this.game.world.centerX,
+			190,
+			'Brag about it?',
+			{font: 'bold 28px levenim-bd', fill: '#fff', stroke: '#0ff', strokeThickness: 1}
+		)
+		this.brag.anchor.setTo(0.5)
+		this.brag.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
+
 		this.scoreLabel = this.add.text(this.game.world.centerX, 240, 'SCORE:', {font: '18px ethnocentric', fill: '#fff', stroke: '#0ff', strokeThickness: 1})
 		this.scoreLabel.anchor.setTo(0.5)
 		this.scoreText = this.add.text(this.game.world.centerX, 290, this.game.score, {
@@ -31,6 +57,7 @@ export default class extends Phaser.State {
       strokeThickness: 1
 		})
 		this.scoreText.anchor.setTo(0.5)
+		this.scoreText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 
 		this.add.sprite(0, 0, 'bd')
 
@@ -43,6 +70,7 @@ export default class extends Phaser.State {
 				window.open("https://www.facebook.com/sharer/sharer.php?u=" + location.href, "_blank")
 			}
 		})
+		this.btn_fb.scale.set(0.25)
 
 		this.btn_tw = new Button({
 			game: this.game,
@@ -57,12 +85,15 @@ export default class extends Phaser.State {
 				)
 			}
 		})
+		this.btn_tw.scale.set(0.25)
 		
 		this.btn_return = new Button({
 			game: this.game,
 			x: this.world.centerX,
 			y: 470,
-			asset: 'btn_return_l',
+			asset: 'btn_bg',
+			text: 'RETURN TO\nSTART GAME',
+			style: this.game.btn_style_s,
 			callback: () => {this.state.start('Start')}
 		})
 

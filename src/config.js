@@ -3,5 +3,5 @@ export default {
   gameHeight: 570,
   host: 'https://anino.xyz:5000',
   localStorageName: 'phaseres6webpack',
-  webfonts: []
+  webfonts: ["levenim", "levenim-bd", "ethnocentric", "ethnocentric-it"]
 }

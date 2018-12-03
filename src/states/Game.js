@@ -51,8 +51,7 @@ export default class extends Phaser.State {
         const v = this.game.cards[key];
         v.count = 0;
 			}
-    }
-    
+    } 
 
     this.background = this.add.tileSprite(this.game.world.centerX, 0, 710, 510, 'sky');
     this.background.anchor.x = 0.5
@@ -126,7 +125,8 @@ export default class extends Phaser.State {
       type: 0,
       asset: 'icon_collect'
     })
-    this.col.body.setCircle(30, 20, 25)
+    this.col.scale.set(0.25)
+    this.col.body.setCircle(120, 80, 100)
 
     this.avoid = new Item({
       game: this.game,
@@ -135,12 +135,13 @@ export default class extends Phaser.State {
       type: 1,
       asset: 'icon_avoid'
     })
-    this.avoid.body.setCircle(30, 20, 25)
+    this.avoid.scale.set(0.25)
+    this.avoid.body.setCircle(120, 80, 100)
 
     this.rock1 = new Item({
       game: this.game,
       x: this.game.width + 100,
-      y: this.game.world.height,
+      y: this.game.world.height - 10,
       type: 2,
       asset: 'rock1'
     })
@@ -148,7 +149,7 @@ export default class extends Phaser.State {
     this.rock2 = new Item({
       game: this.game,
       x: this.game.width + game.rnd.between(100, 200),
-      y: this.game.world.height,
+      y: this.game.world.height - 20,
       type: 2,
       asset: 'rock2'
     })
@@ -157,6 +158,9 @@ export default class extends Phaser.State {
     this.items.add(this.avoid)
     this.items.add(this.rock1)
     this.items.add(this.rock2)
+
+    this.fb = this.add.sprite(650, 480, 'fg')
+    this.fg1 = this.add.sprite(150, 480, 'fg1')
 
     this.game.add.sprite(0, 0, 'bd')
     var bd = this.game.add.sprite(this.game.world.centerX, 15, 'bd_top')
@@ -170,9 +174,9 @@ export default class extends Phaser.State {
       if (i == 1) key = 'card_sr'
       if (i == 2) key = 'card_r'
       if (i == 3) key = 'card_c'
-      const card = this.add.sprite(190, 70, key)
+      const card = this.add.sprite(189, 73, key)
       card.anchor.setTo(0.5)
-      card.scale.set(0.3)
+      card.scale.set(0.5)
       card.visible = false
       this.cardSprites.add(card)
     }
@@ -194,7 +198,7 @@ export default class extends Phaser.State {
     for (let i = 0; i < 4; i++) {
       const clan = new Sprite({
         game: this.game,
-        x: 168 + 15 * i,
+        x: 167 + 15 * i,
         y: 128,
         asset: 'clan'
       })

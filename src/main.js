@@ -36,6 +36,9 @@ class Game extends Phaser.Game {
       2: {name: 'rare', point: 30, count: 0},
       3: {name: 'common', point: 15, count: 0}
     }
+    this.btn_style = {font: '24px ethnocentric', fill: '#fff', stroke: '#0ff', strokeThickness: 1}
+    this.btn_style_s = {font: '16px ethnocentric', fill: '#fff', stroke: '#0ff', strokeThickness: 1, align: "center"},
+    this.btn_style_ss = {font: '8px ethnocentric', fill: '#fff', stroke: '#0ff', strokeThickness: 1, align: "center"},
 
     this.speed = 5
     this.gravity = 3000
@@ -68,23 +71,14 @@ class Game extends Phaser.Game {
     this.nameE.value = this.name
     this.emailE.value = this.email
     
-    this.nameE.onchange = e => {
+    this.nameE.onkeyup = e => {
       var value = e.target.value
-      if (value == '') {
-        alert('Please enter your name')
-      } else {
-        this.name = value
-        localStorage.clear()
-      }
+      this.name = value
     }
-    this.emailE.onchange = e => {
+
+    this.emailE.onkeyup = e => {
       var value = e.target.value
-      if (value == '') {
-        alert('Please enter your email')
-      } else {
-        this.email = value
-        localStorage.clear()
-      }
+      this.email = value
     }
     this.agreeE.onchange = () => {
       this.agree = this.agreeE.checked

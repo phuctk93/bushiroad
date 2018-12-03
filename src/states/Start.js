@@ -29,14 +29,18 @@ export default class extends Phaser.State {
 			game: this.game,
 			x: 350,
 			y: 150,
-			asset: 'btn_start',
+			asset: 'btn_bg',
+			text: 'START GAME',
+			style: this.game.btn_style,
 			callback: () => {this.state.start('Game')}
 		})
 		this.btn_tutor = new Button({
 			game: this.game,
 			x: 350,
 			y: 250,
-			asset: 'btn_tutor',
+			asset: 'btn_bg',
+			text: 'TUTORIAL',
+			style: this.game.btn_style,
 			callback: () => {
 				this.toggle('tutor', true)
 			}
@@ -45,7 +49,9 @@ export default class extends Phaser.State {
 			game: this.game,
 			x: 350,
 			y: 350,
-			asset: 'btn_lea',
+			asset: 'btn_bg',
+			text: 'LEADERBOARD',
+			style: this.game.btn_style,
 			callback: () => {
 				this.toggle('lea', true)
 				this.getLeaderBoard()
@@ -55,11 +61,34 @@ export default class extends Phaser.State {
 			game: this.game,
 			x: 350,
 			y: 450,
-			asset: 'btn_web',
+			asset: 'btn_bg',
+			text: 'CARDFIGHT!!\nVANGUARD WEBSITE',
+			style: this.game.btn_style_s,
 			callback: () => {
-				this.state.start('Game')
+				window.open("https://en.cf-vanguard.com/","_blank")
 			}
 		})
+
+		this.foot_style = {font: '14px levenim-bd', fill: '#ccc', stroke: '#000', strokeThickness: 2, align: "center"}
+		this.foot_text = this.add.text(220, 500,
+			'© Bushiroad International Pte Ltd.',
+			this.foot_style
+		)
+
+		this.tap_text = this.add.text(220, 520,
+			'Tap here to view our privacy message',
+			this.foot_style
+		)
+		this.underline = this.add.graphics(this.tap_text.left, this.tap_text.bottom - 7)
+		this.underline.lineStyle(1, 0x000)
+		this.underline.beginFill(0xcccccc)
+		// Location to start drawing the line (x, y)
+		this.underline.drawRect(0, 0, this.tap_text.width, 3)
+		this.tap_text.inputEnabled = true;
+		this.tap_text.events.onInputDown.add( () => {
+			window.open("https://en.bushiroad.com/privacy/", "_blank")
+			
+		}, this.tap_text)
 
 		this.add.existing(this.btn_start)
 		this.add.existing(this.btn_tutor)

@@ -14,7 +14,7 @@ export default class extends Phaser.State {
   preload() {
     if (config.webfonts.length) {
       WebFont.load({
-        google: {
+        custom: {
           families: config.webfonts
         },
         active: this.fontsLoaded

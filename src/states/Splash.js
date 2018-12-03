@@ -19,6 +19,9 @@ export default class extends Phaser.State {
     this.load.audio('card_sound', 'assets/audio/card.wav')
     this.load.audio('collect_sound', 'assets/audio/collect.wav')
 
+    this.load.image('btn_bg', 'assets/images/btn_bg.png')
+    this.load.image('btn_bg_s', 'assets/images/btn_bg_s.png')
+
     //Start scene
     this.load.image('chars', 'assets/images/start/character.png')
     this.load.image('s_bk', 'assets/images/start/s_bk.png')
@@ -62,6 +65,8 @@ export default class extends Phaser.State {
     this.load.image('clan', 'assets/images/play/clan.png');
     this.load.image('icon_avoid', 'assets/images/play/icon_avoid.png');
     this.load.image('icon_collect', 'assets/images/play/icon_collect.png');
+    this.load.image('fg', 'assets/images/play/fg.png');
+    this.load.image('fg1', 'assets/images/play/fg1.png');
 
     //End
     this.load.image('btn_return', 'assets/images/end/btn_return.png');

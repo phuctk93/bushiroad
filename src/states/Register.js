@@ -30,17 +30,23 @@ export default class extends Phaser.State {
 		this.btn_reg = new Button({
 			game: this.game,
 			x: this.world.centerX,
-			y: 470,
-			asset: 'btn_reg',
+			y: 460,
+			asset: 'btn_bg',
+			text: 'SUBMIT',
+			style: this.game.btn_style,
 			callback: () => {
 				this.submit()
+				//this.state.start('Share')
+				//this.game.form.style.display = 'none'
 			}
 		})
 		this.btn_return = new Button({
 			game: this.game,
 			x: this.world.centerX,
 			y: 520,
-			asset: 'btn_return',
+			asset: 'btn_bg_s',
+			text: 'RETURN TO START GAME',
+			style: this.game.btn_style_ss,
 			callback: () => {
 				this.state.start('Start')
 				this.game.form.style.display = 'none'
@@ -53,12 +59,16 @@ export default class extends Phaser.State {
 	}
 
 	submit() {
+		if (this.game.name === '') {
+			alert('Please enter your name')
+			return
+		}
 		if (!this.game.agree) {
 			alert('You will need to agree to our Privacy Policy and Terms of Use to proceed. Thank you')
 			return
 		}
 		if (!this.validateEmail(this.game.email)) {
-			alert('Please enter valid your email, Thank you')
+			alert('Please enter a valid your email address to submit your score. Thank you')
 			return
 		}
 		var rq = new XMLHttpRequest()
@@ -75,6 +85,9 @@ export default class extends Phaser.State {
 			} else {
 				alert(rq.responseText)
 			}
+		}
+		rq.onerror = () => {
+			alert("Error!! Please try again!")
 		}
 		var u = {
 			name: this.game.name,

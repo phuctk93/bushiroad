@@ -1,11 +1,3 @@
-# Phaser + ES6 + Webpack.
-#### A bootstrap project to create games with Phaser + ES6 + Webpack.
-
-![Phaser+ES6+Webpack](https://raw.githubusercontent.com/lean/phaser-es6-webpack/master/assets/images/phaser-es6-webpack.jpg)
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
-## Phaser 3 supported in this branch: https://github.com/lean/phaser-es6-webpack/tree/phaser3
 
 ## Features
 - ESLINT with JavaScript Standard Style configuration
@@ -22,20 +14,12 @@ If you need typescript support checkout the ```typescript``` branch. Thanks to @
 # Setup
 You'll need to install a few things before you have a working copy of the project.
 
-## 1. Clone this repo:
-
-Navigate into your workspace directory.
-
-Run:
-
-```git clone https://github.com/lean/phaser-es6-webpack.git```
-
-## 2. Install node.js and npm:
+## 1. Install node.js and npm:
 
 https://nodejs.org/en/
 
 
-## 3. Install dependencies (optionally you can install [yarn](https://yarnpkg.com/)):
+## 2. Install dependencies (optionally you can install [yarn](https://yarnpkg.com/)):
 
 Navigate to the cloned repo's directory.
 
@@ -45,7 +29,7 @@ Run:
 
 or if you chose yarn, just run ```yarn```
 
-## 4. Run the development server:
+## 3. Run the development server:
 
 Run:
 
@@ -108,4 +92,5 @@ https://github.com/cstuncsik/phaser-es6-demo
 
 ## Contributors
 
-https://github.com/RenaudROHLINGER
+- https://github.com/RenaudROHLINGER
+- [phuctk93]("https://phuctk93.github.io")

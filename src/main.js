@@ -43,7 +43,7 @@ class Game extends Phaser.Game {
     this.speed = 5
     this.gravity = 3000
     this.death = true
-    this.shortJump = 1000
+    this.shortJump = 800
     this.heighJump = 1200
 
     this.name = localStorage.getItem('name')

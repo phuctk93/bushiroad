@@ -49,7 +49,7 @@ export default class extends Phaser.State {
     this.load.image('highlight', 'assets/images/start/highlight.png')
 
     //Play scene
-    this.load.image('player', 'assets/images/play/character.png')
+    this.load.atlas('player', 'assets/animation/player.png', 'assets/animation/player.json')
     this.load.image('shadow', 'assets/images/play/shadow.png')
     this.load.image('ground', 'assets/images/play/ground.png');
     this.load.image('rock1', 'assets/images/play/rock1.png');

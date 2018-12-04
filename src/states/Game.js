@@ -242,6 +242,7 @@ export default class extends Phaser.State {
     if (now > this.t && this.v <= 15) {
       this.t = now + 10000;
       this.v++;
+      this.player.animSpeed++;
     }
     if (now > this.t1) {
       this.t1 = now + 1000 / (this.v - 4)
@@ -314,8 +315,8 @@ export default class extends Phaser.State {
 
   render() {
     /*if (__DEV__) {
-      this.game.debug.spriteInfo(this.col, 32, 32)
-      this.game.debug.body(this.avoid)
+      this.game.debug.spriteInfo(this.player, 32, 32)
+      this.game.debug.body(this.player)
     }*/
   }
 }

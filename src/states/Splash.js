@@ -18,6 +18,7 @@ export default class extends Phaser.State {
     this.load.audio('wrong', 'assets/audio/wrong.wav')
     this.load.audio('card_sound', 'assets/audio/card.wav')
     this.load.audio('collect_sound', 'assets/audio/collect.wav')
+    this.load.audio('bg_sound', 'assets/audio/bg.ogg')
 
     this.load.image('btn_bg', 'assets/images/btn_bg.png')
     this.load.image('btn_bg_s', 'assets/images/btn_bg_s.png')

@@ -56,6 +56,8 @@ export default class extends Phaser.State {
     this.background = this.add.tileSprite(this.game.world.centerX, 0, 710, 510, 'sky');
     this.background.anchor.x = 0.5
 
+    this.bg_sound = this.add.audio('bg_sound', 1, true)
+    this.bg_sound.play()
     this.game.jumpAudio = this.add.audio('jump1')
     this.game.wrongAudio = this.add.audio('wrong')
 
@@ -279,6 +281,7 @@ export default class extends Phaser.State {
       } else {
         this.game.s = this.s
         this.game.clan = this.clan
+        this.bg_sound.stop()
         this.state.start('End')
       }
     } else {

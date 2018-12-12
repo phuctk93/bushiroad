@@ -9,17 +9,16 @@ export default class extends Phaser.Sprite {
       animArray[i] = i
     }
     const jumpArray = animArray.slice(0, 12)
-    console.log(jumpArray)
     const runArray = animArray.slice(13, 25)
-    console.log(runArray)
     this.animations.add('jump', jumpArray)
     this.animations.add('run', runArray)
-    this.animations.play('run', this.animSpeed, true);
+    this.animations.play('run', this.animSpeed, true)
     game.physics.enable(this, Phaser.Physics.ARCADE)
     this.body.gravity.y = this.game.gravity
     //this.body.setCircle(70, 25, 25)
     this.body.collideWorldBounds = true
     this.canJump = false
+    this.flashed = false
     this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
   }
 
@@ -27,7 +26,7 @@ export default class extends Phaser.Sprite {
     if ( this.body.onFloor() ) {
       if (game.input.activePointer.isDown || this.spaceKey.isDown) {
         this.canJump = true;
-        if (game.input.activePointer.duration >= 200 || this.spaceKey.duration >= 200 ) {
+        if (game.input.activePointer.duration >= 50 || this.spaceKey.duration >= 50 ) {
           this.jump(game.heighJump)
         }
       } else if ( this.canJump ) {
@@ -38,7 +37,6 @@ export default class extends Phaser.Sprite {
       if (!this.animations.getAnimation('run').isPlaying && !this.animations.getAnimation('jump').isPlaying){
         this.animations.stop('jump')
         this.animations.play('run', this.animSpeed, true)
-        console.log(this.animations.currentAnim.name)
       }
         
     }
@@ -56,6 +54,10 @@ export default class extends Phaser.Sprite {
       this.animations.stop('run')
       this.animations.play('jump', this.animSpeed, false)
     }
-    console.log(this.animations.currentAnim.name)
+  }
+
+  death() {
+    this.body.collideWorldBounds = false
+    this.jump(this.game.heighJump)
   }
 }

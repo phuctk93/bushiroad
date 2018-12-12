@@ -43,6 +43,7 @@ export default class extends Phaser.State {
     this.t1 = 1
     this.clan = 0
     this.life = 3
+    this.end = false
 
     this.game.world.setBounds(0, 0, this.game.width, 450);
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -67,7 +68,7 @@ export default class extends Phaser.State {
     this.ground = this.add.tileSprite(this.game.world.centerX, this.game.height, 711, 312, 'ground');
     this.ground.anchor.setTo(0.5, 1)
 
-    this.add.sprite(260, 450, 'shadow')
+    this.add.sprite(260, 445, 'shadow')
 
     this.player = new Player({
       game: this.game,
@@ -232,6 +233,9 @@ export default class extends Phaser.State {
   }
 
   update() {
+    if (this.end) {
+      return
+    }
     this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
     var now = this.game.time.now;
     this.background.tilePosition.x -= this.v / 100;
@@ -271,18 +275,26 @@ export default class extends Phaser.State {
   }
 
   collect(player, item) {
+    if (this.player.flashed) {
+      return
+    }
     this.resetItem(item)
     if (item.type != 0 && this.game.death){
       this.life--
-      this.game.add.tween(this.player).to({alpha: 0.5}, 100, "Linear", true, 0, 3, true)
+      this.player.flashed = true
+      this.playerFlash = this.game.add.tween(this.player).to({alpha: 0.5}, 200, "Linear", true, 0, 3, true)
+      this.playerFlash.onComplete.addOnce(() => {this.player.flashed = false}, this.playerFlash)
       this.game.wrongAudio.play()
-      if (this.life > 0) {
-        this.lifeSprites.getAt(this.life).kill()
-      } else {
+      this.lifeSprites.getAt(this.life).kill()
+      if (this.life <= 0) {
+        this.end = true
         this.game.s = this.s
         this.game.clan = this.clan
         this.bg_sound.stop()
-        this.state.start('End')
+        this.player.death()
+        setTimeout( () =>  {
+          this.state.start('End')
+        }, 1500)
       }
     } else {
       var mod = this.clan % 4
@@ -295,16 +307,48 @@ export default class extends Phaser.State {
         }
         this.game.cards[this.ran].count++
         this.plusText.text = '+ ' + this.game.cards[this.ran].point
-        this.game.add.tween(this.plusText).to( { alpha: 1 }, 1000, "Linear", true);
-        this.game.add.tween(this.plusText).to( { alpha: 0 }, 1000, "Linear", true, 1000);
-        this.ran = this.cardArr[this.game.rnd.between(0, 19)]
+        this.game.add.tween(this.plusText).to( { alpha: 1 }, 1000, "Linear", true)
+        this.game.add.tween(this.plusText).to( { alpha: 0 }, 1000, "Linear", true, 1000)
+        this.ran = this.randomUnique()
         this.cardSprites.getAt(this.ran).visible = true
         this.card_sound.play()
+        this.bg_sound.fadeTo(500, 0.5)
+        this.bg_sound.onFadeComplete.addOnce(this.fadeSound, this.bg_sound)
       }
       this.clanSprites.getAt(mod).visible = true;
       this.clan++
       this.collect_sound.play()
     }
+  }
+
+  randomUnique() {
+    var ran = this.cardArr[this.game.rnd.between(0, 19)]
+    if (ran === this.ran) {
+      var ar1 = this.cardArr.slice(0, 20)
+      switch (ran) {
+        case 0:
+          ran = ar1[this.game.rnd.between(0, 18)]
+          break;
+        case 1:
+          ar1.splice(1, 2)
+          ran = ar1[this.game.rnd.between(0, ar1.length - 1)]
+          break;
+        case 2:
+          ar1.splice(3, 4)
+          ran = ar1[this.game.rnd.between(0, ar1.length - 1)]
+          break;
+        case 3:
+          ran = ar1[this.game.rnd.between(0, 6)]
+          break;
+        default:
+          break;
+      }
+    }
+    return ran;
+  }
+
+  fadeSound(sound) {
+    sound.fadeTo(1000, 1)
   }
 
   resetItem(item) {

@@ -3,18 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>BushiRoad</title>
+    <title>Bushiroad</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="Bushiroad is a web based side scroller game where players will need to form cards upon collecting
     a set of similar relevant card icons.">
-    <meta name="og:title" property="og:title" content="BushiRoad">
+    <meta name="og:title" property="og:title" content="Bushiroad">
     <meta property="og:description" content="Join me and Aichi in CARDFIGHT!! VANGUARD game and stand a chance to win great prizes." />
     <meta property="og:url" content="/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/images/bushi_image.png" />
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta http-equiv="cleartype" content="on">
     <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#ffffff">
     <link rel="manifest" href="/manifest.json">
@@ -24,6 +21,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            cursor: url(http://bringerp.free.fr/Files/RotMG/cursor.gif), pointer;
         }
         input[type="text"] {
             border: none;
@@ -33,6 +31,7 @@
         }
         .cols {
             display: flex;
+            margin: auto;
         }
         .main {
             /*width: 1013px;
@@ -106,13 +105,16 @@
             .ad {
                 display: none;
             }
+            .overlay {
+                left: 505px;
+            }
         }
     </style>
 </head>
 
 <body>
     <div id="title" style="text-align:center">
-        <h1>BushiRoad</h1>
+        <h1>Bushiroad</h1>
     </div>
     <div id="cheat">
         Death:
@@ -166,7 +168,7 @@
                 </div>
                 <div>
                     <input id="esign" type="checkbox" />
-                    <span>Keep me up to date with new products, event exclusives and more on our BushiRoad's eNewsletter!</span>
+                    <span>Keep me up to date with the latest product releases and event news on Bushiroad E-Newsletter!</span>
                 </div>
             </div>
         </div>

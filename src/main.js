@@ -12,8 +12,8 @@ import config from './config'
 
 class Game extends Phaser.Game {
   constructor () {
-    const width = config.gameWidth > window.innerWidth * window.devicePixelRatio ? window.innerWidth : config.gameWidth
-    const height = width * (570 / 1013)
+    const width = config.gameWidth
+    const height = config.gameHeight
 
     super(width, height, Phaser.CANVAS, 'content', null)
 

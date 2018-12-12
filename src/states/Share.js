@@ -31,13 +31,13 @@ export default class extends Phaser.State {
 		this.thank.anchor.setTo(0.5)
 		this.thank.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
 
-		this.we = this.add.text(
+		/*this.we = this.add.text(
 			this.game.world.centerX,
 			145,
 			'We will notify the Top 10 Players on your Prizes!',
 			{font: '13px levenim', fill: '#fff'}
 		)
-		this.we.anchor.setTo(0.5)
+		this.we.anchor.setTo(0.5)*/
 
 		this.brag = this.add.text(
 			this.game.world.centerX,
@@ -61,22 +61,27 @@ export default class extends Phaser.State {
 
 		this.add.sprite(0, 0, 'bd')
 
+		const btn_share_style = {font: '10px', fill: '#fff'}
 		this.btn_fb = new Button({
 			game: this.game,
 			x: 420,
 			y: 350,
 			asset: 'btn_fb',
+			text: '    Share on Facebook',
+			style: btn_share_style,
 			callback: () => {
 				window.open("https://www.facebook.com/sharer/sharer.php?u=" + location.href, "_blank")
 			}
 		})
-		this.btn_fb.scale.set(0.25)
+		//this.btn_fb.scale.set(0.25)
 
 		this.btn_tw = new Button({
 			game: this.game,
 			x: 600,
 			y: 350,
 			asset: 'btn_tw',
+			text: '    Share on Twitter',
+			style: btn_share_style,
 			callback: () => {
 				var mess = 'I have scored ' + this.game.score +' score on CARDFIGHT!! VANGUARD. Can you beat my score?'
 				window.open(
@@ -85,7 +90,7 @@ export default class extends Phaser.State {
 				)
 			}
 		})
-		this.btn_tw.scale.set(0.25)
+		//this.btn_tw.scale.set(0.25)
 		
 		this.btn_return = new Button({
 			game: this.game,

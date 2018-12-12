@@ -14,8 +14,6 @@ export default class extends Phaser.State {
 		this.s_bk.anchor.x = 0.5
 		this.overlay = this.add.sprite(this.game.world.centerX, 0, 'overlay')
 		this.overlay.anchor.x = 0.5
-		this.bg_reg = this.add.sprite(this.game.world.centerX, 0, 'bg_reg')
-		this.bg_reg.anchor.x = 0.5
 		
 		this.game.clickAudio = this.game.add.audio('click')
 
@@ -24,6 +22,23 @@ export default class extends Phaser.State {
 		/*this.bg_reg_a = this.add.sprite(this.game.world.centerX, 0, 'bg_reg_a')
 		this.bg_reg_a.anchor.x = 0.5
 		this.bg_reg_a.alpha = 0.5*/
+
+		this.thank = this.add.text(
+			this.game.world.centerX,
+			75,
+			'ENTER TO WIN \nEXCLUSIVE PRIZES',
+			{font: '28px ethnocentric', fill: '#fff', stroke: '#0ff', strokeThickness: 1, align: 'center'}
+		)
+		this.thank.anchor.setTo(0.5)
+		this.thank.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
+
+		this.we = this.add.text(
+			this.game.world.centerX,
+			145,
+			'Enter the following details and stand a chance to win exclusive Cardfight!! Vanguard Prizes!!',
+			{font: '13px levenim', fill: '#fff'}
+		)
+		this.we.anchor.setTo(0.5)
 		
 		this.add.sprite(0, 0, 'bd')
 

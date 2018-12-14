@@ -61,26 +61,28 @@ export default class extends Phaser.State {
 
 		this.add.sprite(0, 0, 'bd')
 
-		const btn_share_style = {font: '10px', fill: '#fff'}
+		const btn_share_style = {font: '10.5px', fill: '#fff'}
 		this.btn_fb = new Button({
 			game: this.game,
 			x: 420,
 			y: 350,
 			asset: 'btn_fb',
-			text: '    Share on Facebook',
+			text: 'Share on Facebook',
 			style: btn_share_style,
 			callback: () => {
 				window.open("https://www.facebook.com/sharer/sharer.php?u=" + location.href, "_blank")
 			}
 		})
-		//this.btn_fb.scale.set(0.25)
+		this.btn_fb.text.setShadow(0, 0, 0x000)
+		this.btn_fb.text.y = 3
+		this.btn_fb.text.x = 9
 
 		this.btn_tw = new Button({
 			game: this.game,
 			x: 600,
 			y: 350,
 			asset: 'btn_tw',
-			text: '    Share on Twitter',
+			text: 'Share on Twitter',
 			style: btn_share_style,
 			callback: () => {
 				var mess = 'I have scored ' + this.game.score +' score on CARDFIGHT!! VANGUARD. Can you beat my score?'
@@ -90,7 +92,9 @@ export default class extends Phaser.State {
 				)
 			}
 		})
-		//this.btn_tw.scale.set(0.25)
+		this.btn_tw.text.setShadow(0, 0, 0x000)
+		this.btn_tw.text.y = 3
+		this.btn_tw.text.x = 7
 		
 		this.btn_return = new Button({
 			game: this.game,

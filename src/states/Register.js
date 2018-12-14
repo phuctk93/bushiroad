@@ -34,7 +34,7 @@ export default class extends Phaser.State {
 
 		this.we = this.add.text(
 			this.game.world.centerX,
-			145,
+			160,
 			'Enter the following details and stand a chance to win exclusive Cardfight!! Vanguard Prizes!!',
 			{font: '13px levenim', fill: '#fff'}
 		)

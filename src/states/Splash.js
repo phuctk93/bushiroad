@@ -64,7 +64,11 @@ export default class extends Phaser.State {
     this.load.image('card_sr', 'assets/images/play/card_sr.png');
     this.load.image('card_vr', 'assets/images/play/card_vr.png');
     this.load.image('clan', 'assets/images/play/clan.png');
-    this.load.image('icon_avoid', 'assets/images/play/icon_avoid.png');
+    this.load.image('icon1', 'assets/images/play/icon1.png');
+    this.load.image('icon2', 'assets/images/play/icon2.png');
+    this.load.image('icon3', 'assets/images/play/icon3.png');
+    this.load.image('icon4', 'assets/images/play/icon4.png');
+    this.load.image('icon5', 'assets/images/play/icon5.png');
     this.load.image('icon_collect', 'assets/images/play/icon_collect.png');
     this.load.image('fg', 'assets/images/play/fg.png');
     this.load.image('fg1', 'assets/images/play/fg1.png');
@@ -91,6 +95,6 @@ export default class extends Phaser.State {
   }
 
   create () {
-    this.state.start('Start')
+    this.state.start('Register')
   }
 }

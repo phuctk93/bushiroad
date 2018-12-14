@@ -136,7 +136,7 @@ export default class extends Phaser.State {
       x: this.game.width + 100,
       y: 350,
       type: 1,
-      asset: 'icon_avoid'
+      asset: 'icon1'
     })
     this.avoid.scale.set(0.25)
     this.avoid.body.setCircle(120, 80, 100)
@@ -353,11 +353,15 @@ export default class extends Phaser.State {
 
   resetItem(item) {
     if (item.type == 0) {
-      item.y = game.rnd.between(200, 300)
+      item.y = game.rnd.between(300, 350)
     }
     item.x = this.game.width + 100
     //this.randomObj = this.randomArr[this.game.rnd.between(0,40)]
     this.randomObj = this.game.rnd.between(0,3)
+    if (this.randomObj === 1) {
+      var icon = "icon" + this.game.rnd.between(1,5)
+      this.avoid.loadTexture(icon)
+    }
   }
 
   render() {

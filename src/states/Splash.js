@@ -95,6 +95,6 @@ export default class extends Phaser.State {
   }
 
   create () {
-    this.state.start('Share')
+    this.state.start('Start')
   }
 }

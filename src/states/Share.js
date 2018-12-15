@@ -61,7 +61,7 @@ export default class extends Phaser.State {
 
 		this.add.sprite(0, 0, 'bd')
 
-		const btn_share_style = {font: '10.5px', fill: '#fff'}
+		const btn_share_style = {font: '12px Arial', fill: '#fff'}
 		this.btn_fb = new Button({
 			game: this.game,
 			x: 420,
@@ -75,7 +75,7 @@ export default class extends Phaser.State {
 		})
 		this.btn_fb.text.setShadow(0, 0, 0x000)
 		this.btn_fb.text.y = 3
-		this.btn_fb.text.x = 9
+		this.btn_fb.text.x = 12
 
 		this.btn_tw = new Button({
 			game: this.game,

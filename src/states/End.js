@@ -33,6 +33,8 @@ export default class extends Phaser.State {
 
 		this.leas = this.add.group()
 
+		this.game.input.keyboard.removeKeyCapture(Phaser.Keyboard.SPACEBAR)
+
 		this.btn_prize = new Button({
 			game: this.game,
 			x: this.world.centerX,

@@ -69,9 +69,9 @@ export default class extends Phaser.State {
 			}
 		})
 
-		this.foot_style = {font: '14px levenim-bd', fill: '#000', align: "center"}
+		this.foot_style = {font: '14px levenim-bd', fill: '#000', align: "center", stroke: '#fff', strokeThickness: 2}
 		this.foot_text = this.add.text(250, 490,
-			'©Project Vanguard 2018',
+			'© Project Vanguard 2018',
 			this.foot_style
 		)
 
@@ -85,10 +85,10 @@ export default class extends Phaser.State {
 			this.foot_style
 		)
 		this.underline = this.add.graphics(this.tap_text.left, this.tap_text.bottom - 5)
-		this.underline.lineStyle(1, 0x000)
+		this.underline.lineStyle(1, 0xffffff)
 		this.underline.beginFill(0x000)
 		// Location to start drawing the line (x, y)
-		this.underline.drawRect(0, 0, this.tap_text.width, 2)
+		this.underline.drawRect(0, 0, this.tap_text.width, 3)
 		this.tap_text.inputEnabled = true;
 		this.tap_text.events.onInputDown.add( () => {
 			window.open("https://en.bushiroad.com/privacy/", "_blank")
@@ -123,6 +123,10 @@ export default class extends Phaser.State {
 		})
 		this.btn_close_lea.anchor.x = 1
 		this.btn_close_lea.visible = false
+
+		this.tutorText = this.add.text(this.game.world.centerX, 55, 'TUTORIAL', {font: '28px ethnocentric', fill: '#fff', stroke: '#0ff', strokeThickness: 1})
+		this.tutorText.anchor.setTo(0.5)
+		this.tutors.add(this.tutorText)
 
 		this.btn_next = new Button({
 			game: this.game,

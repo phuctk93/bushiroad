@@ -70,13 +70,13 @@ export default class extends Phaser.State {
 		})
 
 		this.foot_style = {font: '14px levenim-bd', fill: '#000', align: "center", stroke: '#fff', strokeThickness: 2}
-		this.foot_text = this.add.text(250, 490,
-			'©Project Vanguard 2018',
+		this.foot_text = this.add.text(230, 490,
+			'©bushiroad All Rights Reserved',
 			this.foot_style
 		)
 
-		this.add.text(230, 510,
-			'©Bushiroad International Pte Ltd.',
+		this.add.text(250, 510,
+			'©Project Vanguard2018',
 			this.foot_style
 		)
 

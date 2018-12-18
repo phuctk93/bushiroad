@@ -63,7 +63,7 @@ export default class extends Phaser.State {
 		this.btn_close.anchor.setTo(1, 0)
 		
 		this.add.text(220, 80, 'DISTANCE SCORE', { font: '10px ethnocentric', fill: '#fff'})
-		this.sText = this.add.text(220, 92, this.game.s + ' meters x 1 points', {
+		this.sText = this.add.text(220, 92, this.game.s + ' meters x 1 point', {
       font: '16px levenim',
       fill: '#fff'
     })

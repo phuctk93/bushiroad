@@ -60,7 +60,7 @@ export default class extends Phaser.State {
 			x: this.world.centerX,
 			y: 520,
 			asset: 'btn_bg_s',
-			text: 'RETURN TO START GAME',
+			text: 'RETURN TO GAME',
 			style: this.game.btn_style_ss,
 			callback: () => {
 				this.state.start('Start')

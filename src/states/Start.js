@@ -17,9 +17,9 @@ export default class extends Phaser.State {
 
 	create() {
 		this.geted = false
-		this.s_bk = this.add.sprite(this.game.world.centerX, 0, 's_bk')
+		this.s_bk = this.add.sprite(this.game.world.centerX - 50, 0, 'start_bk')
 		this.s_bk.anchor.x = 0.5
-		this.add.sprite(500, 50, 'chars')
+		//this.add.sprite(500, 50, 'chars')
 		this.game.clickAudio = this.add.audio('click')
 
 		this.tutors = this.add.group()
@@ -27,7 +27,7 @@ export default class extends Phaser.State {
 
 		this.btn_start = new Button({
 			game: this.game,
-			x: 350,
+			x: 330,
 			y: 150,
 			asset: 'btn_bg',
 			text: 'START GAME',
@@ -36,7 +36,7 @@ export default class extends Phaser.State {
 		})
 		this.btn_tutor = new Button({
 			game: this.game,
-			x: 350,
+			x: 330,
 			y: 250,
 			asset: 'btn_bg',
 			text: 'TUTORIAL',
@@ -47,7 +47,7 @@ export default class extends Phaser.State {
 		})
 		this.btn_lea = new Button({
 			game: this.game,
-			x: 350,
+			x: 330,
 			y: 350,
 			asset: 'btn_bg',
 			text: 'LEADERBOARD',
@@ -59,7 +59,7 @@ export default class extends Phaser.State {
 		})
 		this.btn_web = new Button({
 			game: this.game,
-			x: 350,
+			x: 330,
 			y: 450,
 			asset: 'btn_bg',
 			text: 'CARDFIGHT!!\nVANGUARD WEBSITE',
@@ -70,17 +70,17 @@ export default class extends Phaser.State {
 		})
 
 		this.foot_style = {font: '14px levenim-bd', fill: '#000', align: "center", stroke: '#fff', strokeThickness: 2}
-		this.foot_text = this.add.text(230, 490,
+		this.foot_text = this.add.text(210, 490,
 			'©bushiroad All Rights Reserved',
 			this.foot_style
 		)
 
-		this.add.text(250, 510,
+		this.add.text(230, 510,
 			'©Project Vanguard2018',
 			this.foot_style
 		)
 
-		this.tap_text = this.add.text(210, 530,
+		this.tap_text = this.add.text(190, 530,
 			'Tap here to view our privacy message',
 			this.foot_style
 		)

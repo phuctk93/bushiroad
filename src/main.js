@@ -31,7 +31,7 @@ class Game extends Phaser.Game {
     this.clan = 0
     this.score = 0
     this.cards = {
-      0: {name: 'very rare', point: 75, count: 0},
+      0: {name: 'ultra rare', point: 75, count: 0},
       1: {name: 'super rare', point: 50, count: 0},
       2: {name: 'rare', point: 30, count: 0},
       3: {name: 'common', point: 15, count: 0}

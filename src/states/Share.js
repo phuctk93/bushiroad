@@ -85,7 +85,7 @@ export default class extends Phaser.State {
 			text: 'Share on Twitter',
 			style: btn_share_style,
 			callback: () => {
-				var mess = 'I just scored ' + this.game.score +' points on CARDFIGHT!! VANGUARD. Can you beat my score?'
+				var mess = 'I just scored ' + this.game.score +' points on Cardfight! Run. Can you beat my score? https://cardfight-run.cf-vanguard.com'
 				window.open(
 					"https://twitter.com/home?status=" + mess,
 					"_blank"

@@ -73,7 +73,7 @@ export default class extends Phaser.State {
 			fill: '#fff'
 		})
 		clanLabel.lineSpacing = -5
-		this.clanText = this.add.text(220, 155, this.game.clan + ' icons x 5 points', {
+		this.clanText = this.add.text(220, 155, this.game.clan + ' icon' + this.sNoun(this.game.clan) + ' x 5 points', {
       font: '16px levenim',
       fill: '#fff'
     })
@@ -84,7 +84,7 @@ export default class extends Phaser.State {
 		for (const key in this.game.cards) {
 			if (this.game.cards.hasOwnProperty(key)) {
 				const v = this.game.cards[key];
-				this.add.text(220, 212 + j * 18, v.count + ' ' + v.name + ' cards x ' + v.point + ' points', {
+				this.add.text(220, 212 + j * 18, v.count + ' ' + v.name + ' card' + this.sNoun(v.count) + ' x' + v.point + ' points', {
 					font: '16px levenim',
 					fill: '#fff'
 				})
@@ -151,5 +151,9 @@ export default class extends Phaser.State {
 		t.name = name
 		t.anchor.x =  0.5
 		this.leas.add(t)
+	}
+
+	sNoun(number) {
+		return number >= 1 ? "s" : ""
 	}
 }

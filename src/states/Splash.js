@@ -25,7 +25,8 @@ export default class extends Phaser.State {
     this.load.image('s_bk', 'assets/images/start/s_bk.png')
 
     //Start scene
-    //this.load.image('chars', 'assets/images/start/character.png')
+    this.load.image('logo', 'assets/images/start/logo.png')
+    this.load.image('chars', 'assets/images/start/character.png')
     this.load.image('start_bk', 'assets/images/start/start_bk.png')
     this.load.image('overlay', 'assets/images/start/overlay.png')
     this.load.image('bd', 'assets/images/start/bd.png')

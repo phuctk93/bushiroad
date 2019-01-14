@@ -17,9 +17,11 @@ export default class extends Phaser.State {
 
 	create() {
 		this.geted = false
-		this.s_bk = this.add.sprite(this.game.world.centerX - 50, 0, 'start_bk')
+		this.s_bk = this.add.sprite(this.game.world.centerX, -10, 'start_bk')
 		this.s_bk.anchor.x = 0.5
-		//this.add.sprite(500, 50, 'chars')
+		this.add.sprite(250, 30, 'chars')
+		this.logo = this.add.sprite(330, 70, 'logo')
+		this.logo.anchor.setTo(0.5)
 		this.game.clickAudio = this.add.audio('click')
 
 		this.tutors = this.add.group()
@@ -69,26 +71,22 @@ export default class extends Phaser.State {
 			}
 		})
 
-		this.foot_style = {font: '14px levenim-bd', fill: '#000', align: "center", stroke: '#fff', strokeThickness: 2}
-		this.foot_text = this.add.text(210, 490,
-			'©bushiroad All Rights Reserved',
+		this.foot_style = {font: '9px levenim-bd', fill: '#000', align: "right", boundsAlignH: 'right'}
+		this.foot_text = this.add.text(720, 525,
+			'©bushiroad All Rights Reserved\n©Project Vanguard2018',
 			this.foot_style
 		)
+		this.foot_text.lineSpacing = -5
 
-		this.add.text(230, 510,
-			'©Project Vanguard2018',
-			this.foot_style
-		)
-
-		this.tap_text = this.add.text(190, 530,
+		this.tap_text = this.add.text(210, 530,
 			'Tap here to view our privacy message',
-			this.foot_style
+			{font: 'bold 10px Arial', fill: '#f00', align: 'center'}
 		)
-		this.underline = this.add.graphics(this.tap_text.left, this.tap_text.bottom - 5)
-		this.underline.lineStyle(1, 0xffffff)
-		this.underline.beginFill(0x000)
+		//this.underline = this.add.graphics(this.tap_text.left, this.tap_text.bottom - 5)
+		//this.underline.lineStyle(1, 0xffffff)
+		//this.underline.beginFill(0x000)
 		// Location to start drawing the line (x, y)
-		this.underline.drawRect(0, 0, this.tap_text.width, 3)
+		//this.underline.drawRect(0, 0, this.tap_text.width, 3)
 		this.tap_text.inputEnabled = true;
 		this.tap_text.events.onInputDown.add( () => {
 			window.open("https://en.bushiroad.com/privacy/", "_blank")

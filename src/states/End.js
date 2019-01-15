@@ -154,6 +154,6 @@ export default class extends Phaser.State {
 	}
 
 	sNoun(number) {
-		return number >= 1 ? "s" : ""
+		return number > 1 ? "s" : ""
 	}
 }

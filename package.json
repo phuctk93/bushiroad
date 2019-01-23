@@ -42,7 +42,6 @@
         "idiom.js": "^1.0.0",
         "phaser-ce": "^2.11.0",
         "phaser-kinetic-scrolling-plugin": "^1.2.1",
-        "phaser-scrollable": "git+https://github.com/trueicecold/phaser-scrollable.git",
         "webfontloader": "^1.6.28"
     },
     "cordova": {
